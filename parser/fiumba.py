@@ -1,36 +1,48 @@
 def regex_to_postfix(regex):
-    precedence = {'*': 3, '+': 3, '?': 3, '.': 2, '|': 1, '^': 0, '-': 0, '[': 0, ']': 0, '(': 0, ')': 0}  # Precedencia de operadores
-    output = []  # Lista de salida (notación postfija)
-    operator_stack = []  # Pila para operadores
+    precedence = {'*': 3, '+': 3, '?': 3, '.': 2, '|': 1, '^': 0, '(': 0}  # Operator precedence
+    output = []  # Output list (postfix notation)
+    operator_stack = []  # Operator stack
 
-    for char in regex:
+    i = 0
+    while i < len(regex):
+        char = regex[i]
+
         if char.isalnum():
-            output.append(char)  # Agregar operandos directamente a la salida
-        elif char == '[':
-            operator_stack.append(char)
-        elif char == ']':
-            while operator_stack and operator_stack[-1] != '[':
-                output.append(operator_stack.pop())
-            operator_stack.pop()  # Eliminar '[' de la pila
+            output.append(char)  # Add operands directly to the output
+            # Add '.' operator explicitly if the next character is alphanumeric
+            if i < len(regex) - 1 and regex[i + 1].isalnum():
+                output.append('.')
         elif char == '(':
             operator_stack.append(char)
         elif char == ')':
             while operator_stack and operator_stack[-1] != '(':
                 output.append(operator_stack.pop())
-            operator_stack.pop()  # Eliminar '(' de la pila
+            operator_stack.pop()  # Pop '(' from the stack
         else:
-            # Procesamiento de operadores
-            while operator_stack and precedence[char] <= precedence.get(operator_stack[-1], 0) and operator_stack[-1] != '(' and operator_stack[-1] != '[':
+            # Operator processing
+            if i < len(regex) - 1 and regex[i + 1] == '*':
+                operator_stack.append('(')
+                output.append(char)
+                i += 1  # Skip the '*'
+                while i < len(regex) and regex[i] == '*':
+                    output.append('*')
+                    i += 1
+                operator_stack.append(')')
+                continue  # Continue with the next iteration
+
+            while operator_stack and precedence.get(char, 0) <= precedence.get(operator_stack[-1], 0):
                 output.append(operator_stack.pop())
             operator_stack.append(char)
+
+        i += 1
 
     while operator_stack:
         output.append(operator_stack.pop())
 
     return ''.join(output)
 
-# Ejemplo de uso
-regex = "(e|(a)*b)"
+# Usage example
+regex = "e|a*.b"
 postfix = regex_to_postfix(regex)
-print(f"Expresión regular: {regex}")
-print(f"Notación postfija: {postfix}")
+print(f"Regular Expression: {regex}")
+print(f"Postfix Notation: {postfix}")
