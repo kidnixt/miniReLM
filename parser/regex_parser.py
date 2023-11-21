@@ -1,6 +1,6 @@
 # Thompson's Construction
 # represents a state with two arrows, labelled by label
-# use 'None' for a label representing 'e' arrows
+# use 'None' for a label representing  'Ɛ' arrows
 class state:
     label = None
     edge1 = None

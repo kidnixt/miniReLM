@@ -34,10 +34,10 @@ def automaton_construction(postfix):
             nfa2 = nfa_stack.pop()
             nfa1 = nfa_stack.pop()
             nfa2_initial = get_initial(nfa2)
-            get_final(nfa1).add_transition(SymbolStr('e'), nfa2_initial)
+            get_final(nfa1).add_transition(SymbolStr('Ɛ'), nfa2_initial)
             get_final(nfa1).is_final = False
 
-            newAlphabet = nfa1.alphabet.symbols | nfa2.alphabet.symbols | frozenset([SymbolStr('e')])
+            newAlphabet = nfa1.alphabet.symbols | nfa2.alphabet.symbols | frozenset([SymbolStr('Ɛ')])
 
 
             states = nfa1.states.union(nfa2.states)
@@ -57,22 +57,22 @@ def automaton_construction(postfix):
             initial = State(f"q{counter}", False)
             counter += 1
             nfa1_initial = get_initial(nfa1)
-            initial.add_transition(SymbolStr('e'), nfa1_initial)
+            initial.add_transition(SymbolStr('Ɛ'), nfa1_initial)
             nfa2_initial = get_initial(nfa2)
-            initial.add_transition(SymbolStr('e'), nfa2_initial)
+            initial.add_transition(SymbolStr('Ɛ'), nfa2_initial)
             # create new accept state, connecting the accept states 
             # of the 2 NFAs popped from the stack, to the new state
             final = State(f"q{counter}", True)
             counter += 1
             nfa1_final = get_final(nfa1)
             nfa1_final.is_final = False
-            nfa1_final.add_transition(SymbolStr('e'), final)
+            nfa1_final.add_transition(SymbolStr('Ɛ'), final)
 
             nfa2_final = get_final(nfa2)
             nfa2_final.is_final = False
-            nfa2_final.add_transition(SymbolStr('e'), final)
+            nfa2_final.add_transition(SymbolStr('Ɛ'), final)
 
-            newAlphabet = nfa1.alphabet.symbols | nfa2.alphabet.symbols | frozenset([SymbolStr('e')])
+            newAlphabet = nfa1.alphabet.symbols | nfa2.alphabet.symbols | frozenset([SymbolStr('Ɛ')])
             states = nfa1.states.union(nfa2.states)
             states.add(initial)
             states.add(final)
@@ -99,34 +99,47 @@ def automaton_construction(postfix):
 
     return nfa_stack.pop()
 
+def epsilon_closure_removal(dfa):
+    #     Compute Epsilon Closure for States:
+    #     For each state in the DFA, compute its epsilon closure. The epsilon closure of a state is the set of states reachable from it using epsilon transitions.
+    epsilon_closure = dict[str, set[State]]
+    for state in dfa.states:
+        epsilon_closure[state] = set()
+        # In the epsilon closure, the state is always reachable from itself using epsilon transitions.
+        epsilon_closure[state].add(state)
+        for symbol, reaching_state in state.transitions.items():
+            if symbol == SymbolStr('Ɛ'):
+                epsilon_closure.update(reaching_state)
+
+    new = set()
+
+    for state in dfa.states:
+        new_state = State(state.name, state.is_final)
+        for symbol, reaching_state in state.transitions.items():
+            if symbol != SymbolStr('Ɛ'):
+                for 
+                new_state.add_transition(symbol, reaching_state)
+            
+
+        # for epsilon_state in epsilon_closure:
+        #     for symbol, reaching_state in epsilon_state.transitions.items():
+        #         if symbol != SymbolStr('Ɛ'):
+        #             r = next(iter(reaching_state))
+        #             original_state.add_transition(symbol, r)
+
+
 # Usage example
 regex = "The (man|woman) is"
 tokenized = tokenize_regex(regex)
 postfix_result = shunting_yard_regex(tokenized)
 print("postfix_result:", postfix_result)
 nfa = automaton_construction(postfix_result)
+nfa.export()
 converter = AutomataConverter()
 dfa = converter.convert_nfa_to_dfa(nfa)
 dfa._exporting_strategies = [DfaStandardDotExportingStrategy()]
 minimizer = DFAMinimizer(dfa)
 minimized_dfa = minimizer.minimize()
+epsilon_closure_removal(minimized_dfa)
 minimized_dfa._exporting_strategies = [DfaStandardDotExportingStrategy()]
 minimized_dfa.export()
-
-def epsilon_closure_removal(dfa):
-    #     Compute Epsilon Closure for States:
-    #     For each state in the DFA, compute its epsilon closure. The epsilon closure of a state is the set of states reachable from it using epsilon transitions.
-    for state in dfa.states:
-        epsilon_closure = set()
-        for transition, state in state.transitions:
-            if transition.symbol == SymbolStr('e'):
-                epsilon_closure.add(state)
-
-    # Modify Transition Function:
-    #     Modify the transition function to eliminate epsilon transitions. For each state, combine the transitions reachable through epsilon closure into a single transition.
-
-    # Remove Epsilon-Labeled States:
-    #     Remove the epsilon-labeled states from the set of states.
-
-    # Update Accepting States:
-    #     Update the set of accepting states if necessary.

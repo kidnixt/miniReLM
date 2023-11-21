@@ -44,27 +44,7 @@ def regex_to_postfix(regex):
     return ''.join(output)
 
 
-import re
 
-def tokenize_regex(regex_pattern):
-    # Add spaces around the special characters to simplify splitting
-    regex_pattern = re.sub(r'([\(\)\|\*])', r' \1 ', regex_pattern)
-    
-    # Split the regex into tokens
-    tokens = re.findall(r'\S+|\s+', regex_pattern)
-    
-    # Remove spaces from tokens
-    tokens = [item for item in tokens if not item.isspace()]
-
-    # Add operator '.' explicitly if the next token is a word character or '('
-    i = 0
-    while i < len(tokens) - 1:
-        if tokens[i] == ')' or tokens[i].isalnum():
-            if tokens[i + 1] == '(' or tokens[i + 1].isalnum():
-                tokens.insert(i + 1, '.')
-        i += 1
-    
-    return tokens
 
 
 
