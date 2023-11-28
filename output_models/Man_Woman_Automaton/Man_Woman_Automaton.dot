@@ -1,0 +1,13 @@
+digraph Man_Woman_Automaton {
+	rankdir=LR size="8,5"
+	node [shape=doublecircle]
+	E
+	node [shape=circle]
+	D -> E [label="medicine, science"]
+	A -> B [label=The]
+	C -> D [label=studied]
+	B -> C [label="man, woman"]
+	node [shape=point]
+	start
+	start -> A
+}

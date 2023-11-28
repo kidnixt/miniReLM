@@ -1,4 +1,4 @@
-from model_wrapper.wrapper import Wrapper
+from model_wrapper.model_wrapper import Wrapper
 import torch
 
 
@@ -11,27 +11,51 @@ class GPT2Wrapper(Wrapper):
     def tokenize(self, sequence):
         return torch.tensor([self.tokenizer.bos_token_id,] + self.tokenizer.encode(sequence)).reshape(1, -1).to(self.device)
 
+    def tokenize_empty(self):
+        return torch.tensor([self.tokenizer.bos_token_id,]).reshape(1, -1).to(self.device)
+
     def get_probability(self, sequence, symbols, top_k=None):
         
-        input_ids = self.tokenize(sequence)
+        print("\nSequence:",sequence,"\n")
+        if sequence == "":
+            input_ids = self.tokenize_empty()
+        else:
+            input_ids = self.tokenize(sequence)
         
         with torch.no_grad():
             output = self.model(input_ids)
-            logits = output[0]
-            probs = logits.softmax(-1)
-            _axis = len(probs.shape) - 1
-            top_k_val = torch.topk(probs, axis=_axis, k=top_k)
-            probs[:] = 0.
-            probs = probs.scatter(_axis,
-                            top_k_val.indices,
-                            top_k_val.values)
-            probs /= torch.sum(probs)
+            # logits = output[0]
+            # probs = logits.softmax(-1)
+            logits = output.logits[:, -1, :]
+            probs = torch.softmax(logits, dim=-1)
+            if top_k is not None:
+                _axis = len(probs.shape) - 1
+                top_k_val = torch.topk(probs, axis=_axis, k=top_k)
+                probs[:] = 0.
+                probs = probs.scatter(_axis,
+                                top_k_val.indices,
+                                top_k_val.values)
+                probs /= torch.sum(probs)
 
-        self.get_words_probabilities(probs, symbols)
+        return self.get_words_probabilities(probs, symbols)
 
     def get_words_probabilities(self, probs, symbols):
-        for symbol in symbols:
-            word = self.tokenizer.encode(symbol)
-            word_id = torch.tensor(word).reshape(1, -1).to(self.device)
-            word_prob = torch.gather(probs, 1, word_id).item()
-            print(f"{symbol}: {word_prob}")
+        word_probabilities = {}
+        for word in symbols:
+            word_tokens = self.tokenizer.tokenize(word.value)
+            # Convert each tokenization to input IDs
+            input_ids_list = [self.tokenizer.encode(token) for token in word_tokens]
+            # Extract probabilities for the specified words from the distribution of the next token
+            word_probs = [probs[:, token_id] for token_id in input_ids_list]
+            # Sum the probabilities for all tokenizations of the word
+            total_word_probs = torch.stack(word_probs, dim=-1).sum(dim=-1, keepdim=True)
+            # total_word_probs /= total_word_probs.sum(dim=-1, keepdim=True)
+            word_probabilities[word.value] = total_word_probs[0, -1, 0].item()
+            
+        # Normalize the probabilities
+        total = sum(word_probabilities.values())
+        for word in word_probabilities:
+            word_probabilities[word] /= total
+
+        
+        return word_probabilities
