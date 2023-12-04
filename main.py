@@ -2,10 +2,10 @@ import torch
 from transformers import AutoModelForCausalLM
 from transformers import AutoTokenizer
 from model_wrapper.gpt2_wrapper import GPT2Wrapper
-from llm_automaton.llm_automaton import LLMAutomatonBuilder
+from llm_automaton.llm_automaton_builder import LLMAutomatonBuilder
 from pythautomata.automata_definitions.tomitas_grammars import TomitasGrammars
 from automata_examples.man_woman_dfa import get_man_woman_automaton
-from pythautomata.model_exporters.dot_exporters.dfa_dot_exporting_strategy import DfaDotExportingStrategy
+from pythautomata.model_exporters.dot_exporters.wfa_dot_exporting_strategy import WFADotExportingStrategy
 
 def main():
     torch.manual_seed(42)
@@ -22,7 +22,9 @@ def main():
     builder = LLMAutomatonBuilder()
     automaton = builder.construct_llm_automaton(get_man_woman_automaton(), wrapper)
 
-    automaton.export()
+    exporter = WFADotExportingStrategy()
+    exporter.export(automaton)
+    # automaton.export()
 
 
 if __name__ == "__main__":

@@ -14,19 +14,16 @@ import random
 
 # Traverses the regex automaton and generate a PDFA
 class LLMAutomatonBuilder:
-    name_counter = 0
 
     def construct_llm_automaton(self, regex_automaton: DeterministicFiniteAutomaton, llm:Wrapper):
-        # Traverse the regex_automaton in a DFS manner
+        # Traverse the regex_automaton in a BFS manner
         # for each node, take the transitions and ask a query to the llm
         # create a new node in the llm automaton and add the transitions
         # with the probabilities returned by the llm
         pdfa_states = set()
-        pdfa_initial_state = create_pdfa_state(regex_automaton.alphabet.symbols, initial_weight=1, final_weight=0, name=self.name_counter)
-        # pdfa_initial_state = WeightedState(name = random.choice(alphanumeric_chars), initial_weight=1, final_weight=0)
+        pdfa_initial_state = create_pdfa_state(regex_automaton.alphabet.symbols, initial_weight=1, final_weight=0)
         pdfa_states.add(pdfa_initial_state)
 
-        # initialPairs is an arbitrary pair of states
         initialState = regex_automaton.initial_state
         statesToVisit = [initialState]
         sequenceForStates = DictOfQueue()
@@ -58,19 +55,15 @@ def process_state_transitions(sequenceForStates: dict[State, Sequence], state: S
     sequence = sequenceForStates.get_and_remove_first_value(state)
     actual_pdfa_state = search_state_by_sequence(sequence, pdfa_initial_state)
 
-    # if state.is_final:
-    #     actual_pdfa_state.final_weight = 0.3
-
-    # Here we need all the symbols in the transitions
-    # If we assume the DFA is complete, we could simply use th alphabet here
     transitions = state.transitions
     symbols = []
     for symbol, _ in transitions.items():
         symbols.append(symbol)
 
-       
     if len(transitions) == 0:
         # We are in a final state
+        # Since this is the only way we know the state is final, for any automaton that 
+        # does not have a final state with 0 transitions, this algorithm will fail
         actual_pdfa_state.final_weight = 1
         return pdfa_states
     if len(transitions) == 1:
@@ -106,18 +99,19 @@ def process_state_transitions(sequenceForStates: dict[State, Sequence], state: S
     return pdfa_states
     
 
-def create_pdfa_state(symbols: set[SymbolStr], initial_weight: float = 0, final_weight: float = 0, name = None):
+def create_pdfa_state(symbols: set[SymbolStr], initial_weight: float = 0, final_weight: float = 0):
     alphanumeric_chars = string.ascii_letters + string.digits
     
+    # Create a random name for the state, make sure that is unique in the automaton
     name = "".join(random.choice(alphanumeric_chars) for _ in range(10))
     new_state = WeightedState(name=name, initial_weight=initial_weight, final_weight=final_weight)
-    # We create a transition for each symbol, to make sure the automaton is complete or else the init function will fail
+    # We create a transition for each symbol, to make sure the automaton is complete
     for symbol in symbols :
         new_state.add_transition(symbol, new_state, 0.0)
 
     return new_state
 
-# Since we created the state with placeholder transitions and the pythautomata library allows to have multiple transitions for the same symbol,
+# Since we created the state with placeholder transitions and the pythautomata library allows to have multiple transitions for the same symbol
 # which is not what we want. We need to clear the transitions for that symbol and add the new one 
 def upsert_transition(state: WeightedState, symbol: SymbolStr, new_state: WeightedState, probability: float):
     if symbol not in state.transitions_set:
@@ -129,7 +123,6 @@ def upsert_transition(state: WeightedState, symbol: SymbolStr, new_state: Weight
         state.add_transition(symbol, new_state, probability)
     
     
-
 def sequence_to_string(sequence: Sequence):
     string = ""
     for symbol in sequence:

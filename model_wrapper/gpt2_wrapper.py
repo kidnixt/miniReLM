@@ -37,6 +37,9 @@ class GPT2Wrapper(Wrapper):
 
         return self.get_words_probabilities(probs, symbols)
 
+    # TODO: We should make sure that we are calculating the probabilities for the correct words
+    # Since the tokenizer splits words in different ways, we should check that the probabilities
+    # make sense
     def get_words_probabilities(self, probs, symbols):
         word_probabilities = {}
         for word in symbols:

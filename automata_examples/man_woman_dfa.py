@@ -10,6 +10,7 @@ alphabet = Alphabet(frozenset((SymbolStr("The"), SymbolStr("man"), SymbolStr("wo
                                SymbolStr("medicine"), SymbolStr("science"), SymbolStr("engineering"), 
                                SymbolStr("maths"), SymbolStr("art"), SymbolStr("music"))))
 
+# This automaton represents the following regex: "The (man|woman) studied (medicine|science|engineering|maths|art|music)"
 def get_man_woman_automaton():
     stateA = State("A", False)
     stateB = State("B", False)
@@ -27,7 +28,6 @@ def get_man_woman_automaton():
     stateD.add_transition(SymbolStr("art"), stateE)
     stateD.add_transition(SymbolStr("music"), stateE)
     states = frozenset({stateA, stateB, stateC, stateD, stateE})
-    # states = frozenset({stateA, stateB, stateC, stateD})
 
     initial_state = stateA
 

@@ -1,9 +1,6 @@
-from pythautomata.base_types.sequence import Sequence
 from queue import Queue
 
 # This class is used to store a dictionary of queues
-# But the implementation is strictly dependant of the Sequence class
-# So it is not a generic implementation of a dictionary of queues
 class DictOfQueue:
     def __init__(self):
         self._dict = {}
