@@ -6,7 +6,9 @@ from pythautomata.base_types.symbol import SymbolStr
 from pythautomata.model_comparators.dfa_comparison_strategy import \
     DFAComparisonStrategy as DFAComparator
 
-alphabet = Alphabet(frozenset((SymbolStr("The"), SymbolStr("man"), SymbolStr("woman"), SymbolStr("studied"), SymbolStr("medicine"), SymbolStr("science"))))
+alphabet = Alphabet(frozenset((SymbolStr("The"), SymbolStr("man"), SymbolStr("woman"), SymbolStr("studied"), 
+                               SymbolStr("medicine"), SymbolStr("science"), SymbolStr("engineering"), 
+                               SymbolStr("maths"), SymbolStr("art"), SymbolStr("music"))))
 
 def get_man_woman_automaton():
     stateA = State("A", False)
@@ -20,7 +22,13 @@ def get_man_woman_automaton():
     stateE = State("E", True)
     stateD.add_transition(SymbolStr("medicine"), stateE)
     stateD.add_transition(SymbolStr("science"), stateE)
+    stateD.add_transition(SymbolStr("engineering"), stateE)
+    stateD.add_transition(SymbolStr("maths"), stateE)
+    stateD.add_transition(SymbolStr("art"), stateE)
+    stateD.add_transition(SymbolStr("music"), stateE)
     states = frozenset({stateA, stateB, stateC, stateD, stateE})
+    # states = frozenset({stateA, stateB, stateC, stateD})
+
     initial_state = stateA
 
     comparator = DFAComparator()

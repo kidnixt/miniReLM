@@ -7,26 +7,30 @@ from pythautomata.base_types.sequence import Sequence
 from pythautomata.automata.wheighted_automaton_definition.weighted_state import WeightedState
 from pythautomata.model_comparators.wfa_tolerance_comparison_strategy import WFAToleranceComparator
 from model_wrapper.model_wrapper import Wrapper
+from utils.dict_of_queue import DictOfQueue
 import string
 import random
 
+
 # Traverses the regex automaton and generate a PDFA
 class LLMAutomatonBuilder:
+    name_counter = 0
 
     def construct_llm_automaton(self, regex_automaton: DeterministicFiniteAutomaton, llm:Wrapper):
         # Traverse the regex_automaton in a DFS manner
         # for each node, take the transitions and ask a query to the llm
         # create a new node in the llm automaton and add the transitions
         # with the probabilities returned by the llm
-
         pdfa_states = set()
-        pdfa_initial_state = WeightedState(name = regex_automaton.initial_state.name, initial_weight=1, final_weight=0)
+        pdfa_initial_state = create_pdfa_state(regex_automaton.alphabet.symbols, initial_weight=1, final_weight=0, name=self.name_counter)
+        # pdfa_initial_state = WeightedState(name = random.choice(alphanumeric_chars), initial_weight=1, final_weight=0)
         pdfa_states.add(pdfa_initial_state)
 
         # initialPairs is an arbitrary pair of states
         initialState = regex_automaton.initial_state
         statesToVisit = [initialState]
-        sequenceForStates = {initialState: Sequence()}
+        sequenceForStates = DictOfQueue()
+        sequenceForStates.add_value(initialState, Sequence())
         visitedStates: set[State] = set()
         while statesToVisit:
             state = statesToVisit[0]
@@ -39,9 +43,9 @@ class LLMAutomatonBuilder:
 
 def search_state_by_sequence(sequence: Sequence, initial_state: WeightedState):
     actual_state = initial_state
-    for symbol in sequence:
+    for sequence_symbol in sequence:
         for symbol, states in actual_state.transitions_list.items():
-            if symbol == symbol:
+            if symbol == sequence_symbol:
                 # transtitions_list is a dict, of symbol -> list of tuple (state, probability)
                 actual_state = states[0][0] # We assume the automaton is deterministic
         
@@ -51,61 +55,62 @@ def search_state_by_sequence(sequence: Sequence, initial_state: WeightedState):
 def process_state_transitions(sequenceForStates: dict[State, Sequence], state: State, llm: Wrapper, pdfa_initial_state: WeightedState, 
                               pdfa_states: set[WeightedState], statesToVisit: list[State], visitedStates: set[State], alphabet: set[SymbolStr]):
 
-    sequence = sequenceForStates[state]
+    sequence = sequenceForStates.get_and_remove_first_value(state)
     actual_pdfa_state = search_state_by_sequence(sequence, pdfa_initial_state)
 
     # if state.is_final:
     #     actual_pdfa_state.final_weight = 0.3
 
+    # Here we need all the symbols in the transitions
+    # If we assume the DFA is complete, we could simply use th alphabet here
     transitions = state.transitions
     symbols = []
     for symbol, _ in transitions.items():
         symbols.append(symbol)
 
-    # Here we need all the symbols in the transitions
-    # If we assume the DFA is complete, we could simply use th alphabet here
-    sequence = sequenceForStates[state]
-    
+       
     if len(transitions) == 0:
         # We are in a final state
         actual_pdfa_state.final_weight = 1
         return pdfa_states
     if len(transitions) == 1:
         # We don't need to ask the llm the probability, we can simply assume it is 1
-        new_state = create_pdfa_state(alphabet, state)
+        new_state = create_pdfa_state(alphabet, 0, 0)
         pdfa_states.add(new_state)
         transition_symbol = list(transitions.keys())[0]
         upsert_transition(actual_pdfa_state, transition_symbol, new_state, 1.0)
         next_state = min(state.next_states_for(transition_symbol))
         if next_state not in visitedStates:
             statesToVisit.append(next_state)
-            # TODO: here should be a way to get all the sequences that lead to this state
-            # For example: "The man" and "The woman" leads to the same state
-            # And we want to keep both sequences 
-            sequenceForStates[next_state] = sequenceForStates[state] + transition_symbol
+            sequenceForStates.add_value(next_state, (sequence + transition_symbol))
         return pdfa_states
     
     string = sequence_to_string(sequence)
 
     probs = llm.get_probability(string, symbols)
     for symbol in symbols:
-        new_state = create_pdfa_state(alphabet, state)
+        new_state = create_pdfa_state(alphabet, 0, 0)
         pdfa_states.add(new_state)
         upsert_transition(actual_pdfa_state, symbol, new_state, probs[str(symbol.value)])
         # actual_pdfa_state.add_transition(symbol, new_state, probs[str(symbol.value)])
         next_state = min(state.next_states_for(symbol))
         if next_state not in visitedStates:
             statesToVisit.append(next_state)
-            sequenceForStates[next_state] = sequenceForStates[state] + symbol
+            # TODO: here should be a way to get all the sequences that lead to this state
+            # For example: "The man" and "The woman" leads to the same state
+            # And we want to keep both sequences 
+            sequenceForStates.add_value(next_state, (sequence + symbol))
+            # sequenceForStates[next_state] = sequenceForStates[state] + symbol
 
 
     return pdfa_states
     
 
-def create_pdfa_state(symbols: set[SymbolStr], state: State):
+def create_pdfa_state(symbols: set[SymbolStr], initial_weight: float = 0, final_weight: float = 0, name = None):
     alphanumeric_chars = string.ascii_letters + string.digits
     
-    new_state = WeightedState(name=random.choice(alphanumeric_chars), initial_weight=0, final_weight=0)
+    name = "".join(random.choice(alphanumeric_chars) for _ in range(10))
+    new_state = WeightedState(name=name, initial_weight=initial_weight, final_weight=final_weight)
     # We create a transition for each symbol, to make sure the automaton is complete or else the init function will fail
     for symbol in symbols :
         new_state.add_transition(symbol, new_state, 0.0)

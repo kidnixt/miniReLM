@@ -15,8 +15,6 @@ class GPT2Wrapper(Wrapper):
         return torch.tensor([self.tokenizer.bos_token_id,]).reshape(1, -1).to(self.device)
 
     def get_probability(self, sequence, symbols, top_k=None):
-        
-        print("\nSequence:",sequence,"\n")
         if sequence == "":
             input_ids = self.tokenize_empty()
         else:
