@@ -1,0 +1,480 @@
+digraph weighted_automaton {
+	margin=0 rankdir=LR size=15
+	node [shape=circle]
+	"13Qj1WLJgS" [label="13Qj1WLJgS
+1"]
+	"13Qj1WLJgS" -> "13Qj1WLJgS" [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	"1RIGzpOQw8" [label="1RIGzpOQw8
+1"]
+	"1RIGzpOQw8" -> "1RIGzpOQw8" [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	C80tKVJENM [label="C80tKVJENM
+1"]
+	C80tKVJENM -> C80tKVJENM [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	CYVbFUBRc0 [label="CYVbFUBRc0
+1"]
+	CYVbFUBRc0 -> CYVbFUBRc0 [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	IcbJgtyaAV [label="IcbJgtyaAV
+0"]
+	IcbJgtyaAV -> IcbJgtyaAV [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	IcbJgtyaAV -> diL5Cv2TYJ [label="studied-1.0"]
+	JWC9IERLcl [label="JWC9IERLcl
+1"]
+	JWC9IERLcl -> JWC9IERLcl [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	LqYIWbaWg6 [label="LqYIWbaWg6
+1"]
+	LqYIWbaWg6 -> LqYIWbaWg6 [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	Nlf9dXYVzT [label="Nlf9dXYVzT
+1"]
+	Nlf9dXYVzT -> Nlf9dXYVzT [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	QwgJVMR81X [label="QwgJVMR81X
+1"]
+	QwgJVMR81X -> QwgJVMR81X [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	UnFm6IfoqL [label="UnFm6IfoqL
+1"]
+	UnFm6IfoqL -> UnFm6IfoqL [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	VCYDsLVtiY [label="VCYDsLVtiY
+1"]
+	VCYDsLVtiY -> VCYDsLVtiY [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	Wr70m8kl4f [label="Wr70m8kl4f
+0" shape=diamond]
+	Wr70m8kl4f -> Wr70m8kl4f [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+social sciences-0.0"]
+	Wr70m8kl4f -> wahymuLK6J [label="The-1.0"]
+	XndV2LVjVZ [label="XndV2LVjVZ
+1"]
+	XndV2LVjVZ -> XndV2LVjVZ [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	YwZnGdP6EB [label="YwZnGdP6EB
+1"]
+	YwZnGdP6EB -> YwZnGdP6EB [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	ZWax9UOThs [label="ZWax9UOThs
+1"]
+	ZWax9UOThs -> ZWax9UOThs [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	aO86Tb7n9k [label="aO86Tb7n9k
+1"]
+	aO86Tb7n9k -> aO86Tb7n9k [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	bgsyA3Xc3i [label="bgsyA3Xc3i
+1"]
+	bgsyA3Xc3i -> bgsyA3Xc3i [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	diL5Cv2TYJ [label="diL5Cv2TYJ
+0"]
+	diL5Cv2TYJ -> JWC9IERLcl [label="music-0.0069932552735486155"]
+	diL5Cv2TYJ -> XndV2LVjVZ [label="medicine-0.11203023761206775"]
+	diL5Cv2TYJ -> fKAwVFkPnw [label="maths-0.3124184769348258"]
+	diL5Cv2TYJ -> bgsyA3Xc3i [label="art-0.019022115947729977"]
+	diL5Cv2TYJ -> idNCdsUzbW [label="computer science-0.05463583838883371"]
+	diL5Cv2TYJ -> UnFm6IfoqL [label="business-0.030383806697946585"]
+	diL5Cv2TYJ -> VCYDsLVtiY [label="engineering-0.05009710512824667"]
+	diL5Cv2TYJ -> diL5Cv2TYJ [label="woman-0.0
+studied-0.0
+man-0.0
+The-0.0"]
+	diL5Cv2TYJ -> qQgGu8mPAH [label="science-0.04920203402683901"]
+	diL5Cv2TYJ -> jh7sQUqDsQ [label="information systems-0.30290357406116836"]
+	diL5Cv2TYJ -> CYVbFUBRc0 [label="humanities-0.05711449483239967"]
+	diL5Cv2TYJ -> "13Qj1WLJgS" [label="social sciences-0.005199061096393851"]
+	fKAwVFkPnw [label="fKAwVFkPnw
+1"]
+	fKAwVFkPnw -> fKAwVFkPnw [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	idNCdsUzbW [label="idNCdsUzbW
+1"]
+	idNCdsUzbW -> idNCdsUzbW [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	jh7sQUqDsQ [label="jh7sQUqDsQ
+1"]
+	jh7sQUqDsQ -> jh7sQUqDsQ [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	kTojWfiRVo [label="kTojWfiRVo
+1"]
+	kTojWfiRVo -> kTojWfiRVo [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	m2r5B6kDAo [label="m2r5B6kDAo
+1"]
+	m2r5B6kDAo -> m2r5B6kDAo [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	qQgGu8mPAH [label="qQgGu8mPAH
+1"]
+	qQgGu8mPAH -> qQgGu8mPAH [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	thB0hUjUDO [label="thB0hUjUDO
+0"]
+	thB0hUjUDO -> YwZnGdP6EB [label="music-0.006894049757978123"]
+	thB0hUjUDO -> viDilZOA39 [label="medicine-0.17793567443028768"]
+	thB0hUjUDO -> LqYIWbaWg6 [label="maths-0.2834779246289279"]
+	thB0hUjUDO -> QwgJVMR81X [label="art-0.030256879179944955"]
+	thB0hUjUDO -> m2r5B6kDAo [label="computer science-0.04677843559753547"]
+	thB0hUjUDO -> Nlf9dXYVzT [label="business-0.05007352821292164"]
+	thB0hUjUDO -> C80tKVJENM [label="engineering-0.02276567549784664"]
+	thB0hUjUDO -> thB0hUjUDO [label="woman-0.0
+studied-0.0
+man-0.0
+The-0.0"]
+	thB0hUjUDO -> kTojWfiRVo [label="science-0.06228756946769689"]
+	thB0hUjUDO -> "1RIGzpOQw8" [label="information systems-0.2789616308889246"]
+	thB0hUjUDO -> ZWax9UOThs [label="humanities-0.030995406720352506"]
+	thB0hUjUDO -> aO86Tb7n9k [label="social sciences-0.009573225617583576"]
+	tsmtaEc2u4 [label="tsmtaEc2u4
+0"]
+	tsmtaEc2u4 -> tsmtaEc2u4 [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	tsmtaEc2u4 -> thB0hUjUDO [label="studied-1.0"]
+	viDilZOA39 [label="viDilZOA39
+1"]
+	viDilZOA39 -> viDilZOA39 [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+woman-0.0
+studied-0.0
+man-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	wahymuLK6J [label="wahymuLK6J
+0"]
+	wahymuLK6J -> wahymuLK6J [label="music-0.0
+medicine-0.0
+maths-0.0
+art-0.0
+computer science-0.0
+business-0.0
+engineering-0.0
+studied-0.0
+science-0.0
+information systems-0.0
+humanities-0.0
+The-0.0
+social sciences-0.0"]
+	wahymuLK6J -> tsmtaEc2u4 [label="woman-0.05739496077451167"]
+	wahymuLK6J -> IcbJgtyaAV [label="man-0.9426050392254883"]
+}

@@ -1,0 +1,19 @@
+digraph "NFA - e29a579ac5544dff9bcec9a3167f3f62" {
+	rankdir=LR size="8,5"
+	node [shape=doublecircle]
+	q9
+	node [shape=circle]
+	q6 -> q2 [label="Ɛ"]
+	q6 -> q4 [label="Ɛ"]
+	q8 -> q9 [label=is]
+	q4 -> q5 [label=woman]
+	q2 -> q3 [label=man]
+	q7 -> q8 [label="Ɛ"]
+	q5 -> q7 [label="Ɛ"]
+	q0 -> q1 [label=The]
+	q3 -> q7 [label="Ɛ"]
+	q1 -> q6 [label="Ɛ"]
+	node [shape=point]
+	start0
+	start0 -> q0
+}
