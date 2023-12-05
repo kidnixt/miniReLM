@@ -41,17 +41,35 @@ class GPT2Wrapper(Wrapper):
     # Since the tokenizer splits words in different ways, we should check that the probabilities
     # make sense
     def get_words_probabilities(self, probs, symbols):
+        # word_probabilities = {}
+        # for word in symbols:
+        #     word_tokens = self.tokenizer.tokenize(word.value)
+        #     # Convert each tokenization to input IDs
+        #     input_ids_list = [self.tokenizer.encode(token) for token in word_tokens]
+        #     # Extract probabilities for the specified words from the distribution of the next token
+        #     word_probs = [probs[:, token_id] for token_id in input_ids_list]
+        #     # Sum the probabilities for all tokenizations of the word
+        #     total_word_probs = torch.stack(word_probs, dim=-1).sum(dim=-1, keepdim=True)
+        #     # total_word_probs /= total_word_probs.sum(dim=-1, keepdim=True)
+        #     word_probabilities[word.value] = total_word_probs[0, -1, 0].item()
         word_probabilities = {}
         for word in symbols:
             word_tokens = self.tokenizer.tokenize(word.value)
+            
             # Convert each tokenization to input IDs
             input_ids_list = [self.tokenizer.encode(token) for token in word_tokens]
+            
             # Extract probabilities for the specified words from the distribution of the next token
             word_probs = [probs[:, token_id] for token_id in input_ids_list]
+            
             # Sum the probabilities for all tokenizations of the word
-            total_word_probs = torch.stack(word_probs, dim=-1).sum(dim=-1, keepdim=True)
-            # total_word_probs /= total_word_probs.sum(dim=-1, keepdim=True)
-            word_probabilities[word.value] = total_word_probs[0, -1, 0].item()
+            total_word_probs = sum(word_probs)
+            
+            # Normalize probabilities by the number of tokens
+            total_word_probs /= len(word_probs)
+            
+            word_probabilities[word.value] = total_word_probs[0, -1].item()
+
             
         # Normalize the probabilities
         total = sum(word_probabilities.values())
