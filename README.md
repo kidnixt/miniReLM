@@ -26,4 +26,24 @@ In the ***automata_examples*** folder you can find examples of how to create aut
 
 4. The automaton is created using the "***DeterministicFiniteAutomaton***" class from the *pythautomata* library. The states, transitions, alphabet and a comparator to determine the equivalence of two DFAs, are passed as parameters to the constructor.
 
-## LLM Automaton
+## Model Wrapper 
+
+The wrapper is used to interact with the language model and to obtain the probabilities of the words in the language model.
+The wrapper is an interface that needs to be implemented by the user. There is already an implementation for GPT2 in the ***model_wrappers*** folder.
+
+- The main method of the wrapper is ***get_probabilities***, which receives a list of words and returns a list of probabilities for each word.
+  - sequence: A sequence of symbols provided by the user, as a string.
+  - symbols: A list of symbols that the user wants to obtain the probabilities for.
+
+
+The method returns a dictionary with the probabilities for each symbol. However, the actual implementation of how the probabilities are obtained is left to the specific model wrapper that inherits from this interface.
+
+### GPT2 Wrapper
+
+- GPT2Wrapper is a class that inherits from the previously defined Wrapper class. It represents a wrapper for a GPT-2 model. The class provides methods to tokenize input sequences, compute probabilities for the next token, and compute probabilities for specified words based on the distribution of the next token.
+- The constructor (__init__) initializes an instance of the class, taking the GPT-2 model (model), tokenizer (tokenizer), and device (device) as parameters. 
+- The *tokenize* method converts a sequence into tokenized input IDs using the GPT-2 tokenizer and returns a tensor on the specified device. 
+- The *tokenize_empty* method tokenizes an empty sequence. 
+- The **get_probability** method takes a sequence, symbols to predict, and an optional top_k parameter. It computes the probabilities for the next symbols in the sequence using the GPT-2 model. The **top_k** parameter specifies the number of top tokens to consider for the next token prediction. 
+- The ***get_words_probabilities*** method computes probabilities for specified words based on the distribution of the next token. It normalizes probabilities by the number of tokens for each word. 
+
