@@ -20,6 +20,9 @@ class GPT2Wrapper(Wrapper):
         else:
             input_ids = self.tokenize(sequence)
         
+
+        print (input_ids)
+        print(self.tokenizer.decode(input_ids[0]))
         with torch.no_grad():
             output = self.model(input_ids)
             # logits = output[0]

@@ -1,0 +1,220 @@
+digraph weighted_automaton {
+	margin=0 rankdir=LR size=15
+	node [shape=circle]
+	"6okAHjpH3R" [label="6okAHjpH3R
+1"]
+	"6okAHjpH3R" -> "6okAHjpH3R" [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	"9aaWsLV0Sq" [label="9aaWsLV0Sq
+1"]
+	"9aaWsLV0Sq" -> "9aaWsLV0Sq" [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	AmPWHmAplw [label="AmPWHmAplw
+1"]
+	AmPWHmAplw -> AmPWHmAplw [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	Ht4vuB38mK [label="Ht4vuB38mK
+1"]
+	Ht4vuB38mK -> Ht4vuB38mK [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	MwyoK5JRYk [label="MwyoK5JRYk
+1"]
+	MwyoK5JRYk -> MwyoK5JRYk [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	Obw5m7Lll6 [label="Obw5m7Lll6
+0"]
+	Obw5m7Lll6 -> Obw5m7Lll6 [label="studied-0.0
+The-0.0
+boy-0.0
+girl-0.0"]
+	Obw5m7Lll6 -> MwyoK5JRYk [label="science-0.0926519797886425"]
+	Obw5m7Lll6 -> AmPWHmAplw [label="maths-0.4136642517750343"]
+	Obw5m7Lll6 -> SSneN70QsW [label="music-0.08387349757182236"]
+	Obw5m7Lll6 -> fEeMNvYPa5 [label="medicine-0.19353130824363968"]
+	Obw5m7Lll6 -> XSeyfEO6f3 [label="art-0.13323830358290858"]
+	Obw5m7Lll6 -> "6okAHjpH3R" [label="engineering-0.0830406590379526"]
+	OqioFkXFjd [label="OqioFkXFjd
+0"]
+	OqioFkXFjd -> uaE3Io2BHk [label="studied-1.0"]
+	OqioFkXFjd -> OqioFkXFjd [label="science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	SSneN70QsW [label="SSneN70QsW
+1"]
+	SSneN70QsW -> SSneN70QsW [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	Sbzh5ay4Vd [label="Sbzh5ay4Vd
+1"]
+	Sbzh5ay4Vd -> Sbzh5ay4Vd [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	XSeyfEO6f3 [label="XSeyfEO6f3
+1"]
+	XSeyfEO6f3 -> XSeyfEO6f3 [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	eJmxRUFKkD [label="eJmxRUFKkD
+1"]
+	eJmxRUFKkD -> eJmxRUFKkD [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	fEeMNvYPa5 [label="fEeMNvYPa5
+1"]
+	fEeMNvYPa5 -> fEeMNvYPa5 [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	flI8CqG8li [label="flI8CqG8li
+0" shape=diamond]
+	flI8CqG8li -> flI8CqG8li [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	flI8CqG8li -> q5phVTaGqO [label="The-1.0"]
+	i1PCGUFgif [label="i1PCGUFgif
+1"]
+	i1PCGUFgif -> i1PCGUFgif [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	oGvHRjaLaM [label="oGvHRjaLaM
+1"]
+	oGvHRjaLaM -> oGvHRjaLaM [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	q5phVTaGqO [label="q5phVTaGqO
+0"]
+	q5phVTaGqO -> q5phVTaGqO [label="studied-0.0
+science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0"]
+	q5phVTaGqO -> qwQjGRwJ82 [label="boy-0.5137142234913223"]
+	q5phVTaGqO -> OqioFkXFjd [label="girl-0.48628577650867766"]
+	qwQjGRwJ82 [label="qwQjGRwJ82
+0"]
+	qwQjGRwJ82 -> Obw5m7Lll6 [label="studied-1.0"]
+	qwQjGRwJ82 -> qwQjGRwJ82 [label="science-0.0
+maths-0.0
+music-0.0
+medicine-0.0
+The-0.0
+art-0.0
+engineering-0.0
+boy-0.0
+girl-0.0"]
+	uaE3Io2BHk [label="uaE3Io2BHk
+0"]
+	uaE3Io2BHk -> uaE3Io2BHk [label="studied-0.0
+The-0.0
+boy-0.0
+girl-0.0"]
+	uaE3Io2BHk -> Ht4vuB38mK [label="science-0.09280064140325225"]
+	uaE3Io2BHk -> "9aaWsLV0Sq" [label="maths-0.36741789609457615"]
+	uaE3Io2BHk -> Sbzh5ay4Vd [label="music-0.05778543553399858"]
+	uaE3Io2BHk -> i1PCGUFgif [label="medicine-0.29402674611379104"]
+	uaE3Io2BHk -> eJmxRUFKkD [label="art-0.12132608141270744"]
+	uaE3Io2BHk -> oGvHRjaLaM [label="engineering-0.06664319944167457"]
+}

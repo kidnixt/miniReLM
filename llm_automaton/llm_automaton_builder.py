@@ -36,6 +36,8 @@ class LLMAutomatonBuilder:
             visitedStates.add(state)
 
         comparator = WFAToleranceComparator()
+        print(pdfa_states)
+        print(regex_automaton)
         return ProbabilisticDeterministicFiniteAutomaton(regex_automaton.alphabet, pdfa_states, SymbolStr("$"), comparator, "llm_automaton")
 
 def search_state_by_sequence(sequence: Sequence, initial_state: WeightedState):
@@ -49,8 +51,8 @@ def search_state_by_sequence(sequence: Sequence, initial_state: WeightedState):
     return actual_state
 
 
-def process_state_transitions(sequenceForStates: dict[State, Sequence], state: State, llm: Wrapper, pdfa_initial_state: WeightedState, 
-                              pdfa_states: set[WeightedState], statesToVisit: list[State], visitedStates: set[State], alphabet: set[SymbolStr]):
+def process_state_transitions(sequenceForStates: DictOfQueue, state: State, llm: Wrapper, pdfa_initial_state: WeightedState, 
+                              pdfa_states: set, statesToVisit: list, visitedStates: set, alphabet: set):
 
     sequence = sequenceForStates.get_and_remove_first_value(state)
     actual_pdfa_state = search_state_by_sequence(sequence, pdfa_initial_state)
@@ -99,7 +101,7 @@ def process_state_transitions(sequenceForStates: dict[State, Sequence], state: S
     return pdfa_states
     
 
-def create_pdfa_state(symbols: set[SymbolStr], initial_weight: float = 0, final_weight: float = 0):
+def create_pdfa_state(symbols: set, initial_weight: float = 0, final_weight: float = 0):
     alphanumeric_chars = string.ascii_letters + string.digits
     
     # Create a random name for the state, make sure that is unique in the automaton
