@@ -1,0 +1,220 @@
+digraph weighted_automaton {
+	margin=0 rankdir=LR size=15
+	node [shape=circle]
+	"39K9DaoDjN" [label="39K9DaoDjN
+1"]
+	"39K9DaoDjN" -> "39K9DaoDjN" [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	"4RFjU2GAFB" [label="4RFjU2GAFB
+1"]
+	"4RFjU2GAFB" -> "4RFjU2GAFB" [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	"9WU7cUsJSG" [label="9WU7cUsJSG
+0" shape=diamond]
+	"9WU7cUsJSG" -> "9WU7cUsJSG" [label="engineering-0.0
+maths-0.0
+woman-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	"9WU7cUsJSG" -> iXYcnbWXjF [label="The-1.0"]
+	Ft0Prt5wFq [label="Ft0Prt5wFq
+1"]
+	Ft0Prt5wFq -> Ft0Prt5wFq [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	HeyOX7g0Be [label="HeyOX7g0Be
+0"]
+	HeyOX7g0Be -> w62hmRJzq5 [label="engineering-0.022560877923864985"]
+	HeyOX7g0Be -> PolM18eX6U [label="maths-0.09820176263303138"]
+	HeyOX7g0Be -> HeyOX7g0Be [label="woman-0.0
+The-0.0
+man-0.0
+studied-0.0"]
+	HeyOX7g0Be -> fCwhAOt1ko [label="medicine-0.03187985788927566"]
+	HeyOX7g0Be -> vXkzRP3KX9 [label="science-0.07546594801439921"]
+	HeyOX7g0Be -> "4RFjU2GAFB" [label="art-0.5885630572819376"]
+	HeyOX7g0Be -> Ft0Prt5wFq [label="music-0.1833284962574912"]
+	M8LPBEBndW [label="M8LPBEBndW
+0"]
+	M8LPBEBndW -> M8LPBEBndW [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0"]
+	M8LPBEBndW -> HeyOX7g0Be [label="studied-1.0"]
+	PolM18eX6U [label="PolM18eX6U
+1"]
+	PolM18eX6U -> PolM18eX6U [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	Ttc8CERN3T [label="Ttc8CERN3T
+0"]
+	Ttc8CERN3T -> dESjWgYAF9 [label="engineering-0.018521457068319036"]
+	Ttc8CERN3T -> Y5JPKfxv47 [label="maths-0.10848703801033431"]
+	Ttc8CERN3T -> Ttc8CERN3T [label="woman-0.0
+The-0.0
+man-0.0
+studied-0.0"]
+	Ttc8CERN3T -> kJdvuAlnwf [label="medicine-0.0243794062690851"]
+	Ttc8CERN3T -> "39K9DaoDjN" [label="science-0.07136406230126101"]
+	Ttc8CERN3T -> mjq8JvaImc [label="art-0.6503396914271192"]
+	Ttc8CERN3T -> WfMbwZJgrr [label="music-0.12690834492388134"]
+	WfMbwZJgrr [label="WfMbwZJgrr
+1"]
+	WfMbwZJgrr -> WfMbwZJgrr [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	Y5JPKfxv47 [label="Y5JPKfxv47
+1"]
+	Y5JPKfxv47 -> Y5JPKfxv47 [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	dESjWgYAF9 [label="dESjWgYAF9
+1"]
+	dESjWgYAF9 -> dESjWgYAF9 [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	fCwhAOt1ko [label="fCwhAOt1ko
+1"]
+	fCwhAOt1ko -> fCwhAOt1ko [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	iXYcnbWXjF [label="iXYcnbWXjF
+0"]
+	iXYcnbWXjF -> iXYcnbWXjF [label="engineering-0.0
+maths-0.0
+The-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	iXYcnbWXjF -> M8LPBEBndW [label="woman-0.3387070950784268"]
+	iXYcnbWXjF -> rsvHV0tSQs [label="man-0.6612929049215732"]
+	kJdvuAlnwf [label="kJdvuAlnwf
+1"]
+	kJdvuAlnwf -> kJdvuAlnwf [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	mjq8JvaImc [label="mjq8JvaImc
+1"]
+	mjq8JvaImc -> mjq8JvaImc [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	rsvHV0tSQs [label="rsvHV0tSQs
+0"]
+	rsvHV0tSQs -> rsvHV0tSQs [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0"]
+	rsvHV0tSQs -> Ttc8CERN3T [label="studied-1.0"]
+	vXkzRP3KX9 [label="vXkzRP3KX9
+1"]
+	vXkzRP3KX9 -> vXkzRP3KX9 [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+	w62hmRJzq5 [label="w62hmRJzq5
+1"]
+	w62hmRJzq5 -> w62hmRJzq5 [label="engineering-0.0
+maths-0.0
+woman-0.0
+The-0.0
+man-0.0
+medicine-0.0
+science-0.0
+art-0.0
+music-0.0
+studied-0.0"]
+}
